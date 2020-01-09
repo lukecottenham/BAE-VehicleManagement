@@ -20,6 +20,9 @@ public class Vehicle {
 	private Long id;
 	private String make;
 	private String model;
+	private String taxDate;
+	private String motDate;
+	private String insuranceDate;
 	
 //	@OneToMany(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "vehicle_id")
@@ -29,11 +32,14 @@ public class Vehicle {
 		
 	}
 	
-	public Vehicle(Long id, String make, String model) {
+	public Vehicle(Long id, String make, String model, String taxDate, String motDate, String insuranceDate) {
 		super();
 		this.id = id;
 		this.make = make;
 		this.model = model;
+		this.taxDate = taxDate;
+		this.insuranceDate = insuranceDate;
+		this.motDate = motDate;
 	}
 
 	public Long getId() {
@@ -61,6 +67,31 @@ public class Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
+	
+	public String getTaxDate() {
+		return taxDate;
+	}
+
+	public void setTaxDate(String taxDate) {
+		this.taxDate = taxDate;
+	}
+
+	public String getMotDate() {
+		return motDate;
+	}
+
+	public void setMotDate(String motDate) {
+		this.motDate = motDate;
+	}
+
+	public String getInsuranceDate() {
+		return insuranceDate;
+	}
+
+	public void setInsuranceDate(String insuranceDate) {
+		this.insuranceDate = insuranceDate;
+	}
+	
 
 //	 public List<Issue> getIssues() {
 //	        return issues;
@@ -70,6 +101,8 @@ public class Vehicle {
 //	        this.issues = issues;
 //	    }
 	    
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

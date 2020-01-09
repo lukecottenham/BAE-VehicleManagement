@@ -11,16 +11,20 @@ public class Issue {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String issueName;
+	private String urgency;
+	private String lastAddressed;
 	
 	public Issue() {
 		
 	}
 	
-	public Issue(Long id, String name) {
+	public Issue(Long id, String issueName, String urgency, String lastAddressed) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.issueName = issueName;
+		this.urgency = urgency;
+		this.lastAddressed = lastAddressed;
 	}
 
 	public Long getId() {
@@ -31,12 +35,28 @@ public class Issue {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getIssueName() {
+		return issueName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setIssueName(String issueName) {
+		this.issueName = issueName;
+	}
+
+	public String getUrgency() {
+		return urgency;
+	}
+
+	public void setUrgency(String urgency) {
+		this.urgency = urgency;
+	}
+
+	public String getLastAddressed() {
+		return lastAddressed;
+	}
+
+	public void setLastAddressed(String lastAddressed) {
+		this.lastAddressed = lastAddressed;
 	}
 
 	@Override
@@ -44,7 +64,7 @@ public class Issue {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((issueName == null) ? 0 : issueName.hashCode());
 		return result;
 	}
 
@@ -62,17 +82,17 @@ public class Issue {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (name == null) {
-			if (other.name != null)
+		if (issueName == null) {
+			if (other.issueName != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!issueName.equals(other.issueName))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Issue [id=" + id + ", name=" + name + "]";
+		return "Issue [id=" + id + ", name=" + issueName + "]";
 	}
 	
 	
