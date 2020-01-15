@@ -1,4 +1,4 @@
-package com.bae.vehicle.persistence.domain;
+package com.bae.persistence.domain;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-import com.bae.issue.persistence.domain.Issue;
+import com.bae.persistence.domain.Issue;
 
 @Entity
 public class Vehicle {

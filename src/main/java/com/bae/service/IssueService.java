@@ -1,11 +1,11 @@
-package com.bae.issue.service;
+package com.bae.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bae.issue.persistence.domain.Issue;
-import com.bae.issue.persistence.repo.IssueRepo;
+import com.bae.persistence.domain.Issue;
+import com.bae.persistence.repo.IssueRepo;
 
 @Service
 public class IssueService {

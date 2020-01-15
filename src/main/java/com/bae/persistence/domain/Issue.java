@@ -1,4 +1,4 @@
-package com.bae.issue.persistence.domain;
+package com.bae.persistence.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

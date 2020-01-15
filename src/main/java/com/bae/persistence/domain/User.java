@@ -1,4 +1,4 @@
-package com.bae.user.persistence.domain;
+package com.bae.persistence.domain;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
-import com.bae.vehicle.persistence.domain.Vehicle;
+import com.bae.persistence.domain.Vehicle;
 
 @Entity
 public class User {

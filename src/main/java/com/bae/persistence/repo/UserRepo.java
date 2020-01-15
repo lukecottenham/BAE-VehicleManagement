@@ -1,9 +1,9 @@
-package com.bae.user.persistence.repo;
+package com.bae.persistence.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.bae.user.persistence.domain.User;
+import com.bae.persistence.domain.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long>{

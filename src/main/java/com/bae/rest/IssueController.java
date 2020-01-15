@@ -1,4 +1,4 @@
-package com.bae.user.rest;
+package com.bae.rest;
 
 import java.util.List;
 
@@ -11,33 +11,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.bae.user.persistence.domain.User;
-import com.bae.user.service.UserService;
+import com.bae.persistence.domain.Issue;
+import com.bae.service.IssueService;
 
 @RestController
-public class UserController {
+public class IssueController {
 
-	private UserService service;
+	private IssueService service;
 	
-	public UserController(UserService service) {
+	public IssueController(IssueService service) {
 		this.service = service;
 	}
 	
 	@CrossOrigin
-	@GetMapping("/user")
-	public List<User> getAllUsers(){
-		return service.getAllUsers();
+	@GetMapping("/issue")
+	public List<Issue> getAllIssues(){
+		return service.getAllIssues();
 	}
 	
 	@CrossOrigin
-	@PostMapping("/user")
-	public User addUser(@RequestBody User userToAdd) {
-		return service.addNewUser(userToAdd);
+	@PostMapping("/issue")
+	public Issue addIssue(@RequestBody Issue issueToAdd) {
+		return service.addNewIssue(issueToAdd);
 	}
 	
 	@CrossOrigin
-	@DeleteMapping("/user/{id}")
-	public String deleteUser(@PathVariable Long id) {
-		return service.deleteUser(id);
+	@DeleteMapping("/issue/{id}")
+	public String deleteIssue(@PathVariable Long id) {
+		return service.deleteIssue(id);
 	}
 }
