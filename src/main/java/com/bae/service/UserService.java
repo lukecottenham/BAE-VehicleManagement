@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.UserNotFoundException;
 import com.bae.persistence.domain.User;
+import com.bae.persistence.domain.Vehicle;
 import com.bae.persistence.repo.UserRepo;
 
 @Service
 public class UserService {
 	
 	private UserRepo repo;
+	
+	private VehicleService vehicleService;
 	
 	@Autowired
 	public UserService(UserRepo repo) {
@@ -35,6 +38,13 @@ public class UserService {
 		User toUpdate = findUserById(id);
 		toUpdate.setFirstName(user.getFirstName());
 		return this.repo.save(toUpdate);
+	}
+	
+	public User addVehicleToUser(Long id, Vehicle vehicle) {
+		User toUpdate = findUserById(id);
+		Vehicle newVehicle = this.vehicleService.addNewVehicle(vehicle);
+		toUpdate.getVehicles().add(newVehicle);
+		return this.repo.saveAndFlush(toUpdate);
 	}
 	
 	public String deleteUser(Long primaryKeyOfUsers) {

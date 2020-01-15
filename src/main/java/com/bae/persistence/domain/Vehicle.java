@@ -24,10 +24,10 @@ public class Vehicle {
 	private String motDate;
 	private String insuranceDate;
 	
-//	@OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "vehicle_id")
-//    private List<Issue> issues;
-//	
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "vehicle_id")
+    private List<Issue> issues;
+	
 	public Vehicle() {
 		
 	}
@@ -93,13 +93,13 @@ public class Vehicle {
 	}
 	
 
-//	 public List<Issue> getIssues() {
-//	        return issues;
-//	    }
-//
-//	    public void setIssues(List<Issue> issues) {
-//	        this.issues = issues;
-//	    }
+	 public List<Issue> getIssues() {
+	        return issues;
+	    }
+
+	    public void setIssues(List<Issue> issues) {
+	        this.issues = issues;
+	    }
 	    
 
 
