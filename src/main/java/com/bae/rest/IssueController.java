@@ -37,17 +37,23 @@ public class IssueController {
 		return this.service.findIssueById(id);
 	}
 	
-	@CrossOrigin
-	@PostMapping("/issue")
-	public Issue addIssue(@RequestBody Issue issueToAdd) {
-		return service.addNewIssue(issueToAdd);
-	}
+//	@CrossOrigin
+//	@PostMapping("/addIssue")
+//	public Issue addIssue(@RequestBody Issue issueToAdd) {
+//		return service.addNewIssue(issueToAdd);
+//	}
 	
 	@CrossOrigin
 	@PatchMapping("/updateIssue/{id}")
 	public Issue updateIssue(@PathVariable Long id, @RequestBody Issue issue) {
 		return this.service.updateIssue(issue, id);
 	}
+	
+//	@CrossOrigin
+//	@PatchMapping("/addIssue/{id}")
+//	public Vehicle addIssueToVehicle(@PathVariable Long id, @RequestBody Issue issue) {
+//		return this.service.addIssueToVehicle(id, issue);
+//	}
 	
 	@CrossOrigin
 	@DeleteMapping("/issue/{id}")

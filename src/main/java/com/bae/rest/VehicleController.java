@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bae.persistence.domain.Issue;
 import com.bae.persistence.domain.User;
 import com.bae.persistence.domain.Vehicle;
 import com.bae.service.VehicleService;
@@ -49,6 +50,12 @@ public class VehicleController {
 	@PatchMapping("/updateVehicle/{id}")
 	public Vehicle updateVehicle(@PathVariable Long id, @RequestBody Vehicle vehicle) {
 		return this.service.updateVehicle(vehicle, id);
+	}
+	
+	@CrossOrigin
+	@PatchMapping("/addIssue/{id}")
+	public Vehicle addIssueToVehicle(@PathVariable Long id, @RequestBody Issue issue) {
+		return this.service.addIssueToVehicle(id, issue);
 	}
 	
 	@CrossOrigin

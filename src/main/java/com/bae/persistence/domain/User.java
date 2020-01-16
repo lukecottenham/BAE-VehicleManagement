@@ -22,7 +22,7 @@ public class User {
 	private String surname;
 	private String email;
 	private String postcode;
-//	private String phone;
+	private String password;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
@@ -30,13 +30,14 @@ public class User {
 
 	public User() {}
 
-	public User(Long id, String firstName, String surname, String email, String postcode) {
+	public User(Long id, String firstName, String surname, String email, String postcode, String password) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.surname = surname;
 		this.email = email;
 		this.postcode = postcode;
+		this.password = password;
 	}
 
 	public Long getId() {
@@ -77,6 +78,14 @@ public class User {
 
 	public void setPostcode(String postcode) {
 		this.postcode = postcode;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public List<Vehicle> getVehicles() {

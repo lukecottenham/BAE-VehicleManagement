@@ -2,10 +2,12 @@ package com.bae.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bae.exceptions.UserNotFoundException;
 import com.bae.exceptions.VehicleNotFoundException;
+import com.bae.persistence.domain.Issue;
 import com.bae.persistence.domain.User;
 //import com.bae.user.persistence.repo.UserRepo;
 import com.bae.persistence.domain.Vehicle;
@@ -16,10 +18,12 @@ public class VehicleService {
 	
 	private VehicleRepo repo;
 	
-//	private UserRepo userRepo;
+	private IssueService issueService;
 	
-	public VehicleService(VehicleRepo repo) {
+	@Autowired
+	public VehicleService(VehicleRepo repo, IssueService issueService) {
 		this.repo = repo;
+		this.issueService = issueService;
 	}
 	
 	public List<Vehicle> getAllVehicles() {
@@ -41,6 +45,14 @@ public class VehicleService {
 		toUpdate.setMotDate(vehicle.getMotDate());
 		toUpdate.setTaxDate(vehicle.getTaxDate());
 		toUpdate.setInsuranceDate(vehicle.getInsuranceDate());
+		return this.repo.save(toUpdate);
+	}
+	
+	public Vehicle addIssueToVehicle(Long id, Issue issue) {
+		Vehicle toUpdate = findVehicleById(id);
+		
+		Issue newIssue = this.issueService.addNewIssue(issue);
+		toUpdate.getIssues().add(newIssue);
 		return this.repo.save(toUpdate);
 	}
 	
