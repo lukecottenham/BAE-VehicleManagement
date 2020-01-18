@@ -8,4 +8,6 @@ import com.bae.persistence.domain.Issue;
 @Repository
 public interface IssueRepo extends JpaRepository<Issue, Long>{
 
+	Object findByIssueName(String test_NAME);
+
 }

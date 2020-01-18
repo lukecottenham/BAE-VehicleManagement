@@ -65,8 +65,12 @@ public class Issue {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((issueName == null) ? 0 : issueName.hashCode());
+		result = prime * result + ((lastAddressed == null) ? 0 : lastAddressed.hashCode());
+		result = prime * result + ((urgency == null) ? 0 : urgency.hashCode());
 		return result;
 	}
+
+	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -86,6 +90,16 @@ public class Issue {
 			if (other.issueName != null)
 				return false;
 		} else if (!issueName.equals(other.issueName))
+			return false;
+		if (lastAddressed == null) {
+			if (other.lastAddressed != null)
+				return false;
+		} else if (!lastAddressed.equals(other.lastAddressed))
+			return false;
+		if (urgency == null) {
+			if (other.urgency != null)
+				return false;
+		} else if (!urgency.equals(other.urgency))
 			return false;
 		return true;
 	}
