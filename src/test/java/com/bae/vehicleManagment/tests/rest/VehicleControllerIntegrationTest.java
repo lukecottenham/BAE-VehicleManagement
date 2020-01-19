@@ -56,6 +56,7 @@ public class VehicleControllerIntegrationTest {
 				.perform(request(HttpMethod.POST, "/vehicle").contentType(MediaType.APPLICATION_JSON)
 						.content(this.mapper.writeValueAsString(newVehicle)).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+		testVehicleWithID.setId(testVehicleWithID.getId()+1);
 		assertEquals(this.mapper.writeValueAsString(testVehicleWithID), result);
 	}
 

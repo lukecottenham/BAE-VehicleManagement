@@ -18,6 +18,7 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.bae.persistence.domain.Issue;
+import com.bae.persistence.domain.Vehicle;
 import com.bae.persistence.repo.IssueRepo;
 import com.bae.service.IssueService;
 
@@ -80,12 +81,11 @@ public class IssueServiceUnitTest {
 
 	@Test
 	public void updateIssuesTest() {
-		Issue newIssue = new Issue(id, "Oil", "1", "01-10-2018");
+		Issue newIssue = new Issue(id, "Oil", "", "12-2-2019");
 		
 		when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testIssueWithID));
 
-		Issue updatedIssue = new Issue(newIssue.getId(), newIssue.getIssueName(), 
-										newIssue.getLastAddressed(), newIssue.getUrgency());
+		Issue updatedIssue = new Issue(id, newIssue.getIssueName(), newIssue.getUrgency(), newIssue.getLastAddressed());
 		updatedIssue.setId(this.id);
 
 		when(this.repo.save(updatedIssue)).thenReturn(updatedIssue);

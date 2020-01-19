@@ -49,6 +49,12 @@ public class IssueController {
 		return this.service.updateIssue(issue, id);
 	}
 	
+	@CrossOrigin
+	@PatchMapping("/updateAddressed/{id}")
+	public Issue updateIssueAddressed(@PathVariable Long id, @RequestBody Issue issue) {
+		return this.service.updateIssueAddressed(issue, id);
+	}
+	
 //	@CrossOrigin
 //	@PatchMapping("/addIssue/{id}")
 //	public Vehicle addIssueToVehicle(@PathVariable Long id, @RequestBody Issue issue) {

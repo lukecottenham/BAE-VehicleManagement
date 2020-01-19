@@ -3,7 +3,9 @@ package com.bae.vehicleManagment.tests.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -58,7 +60,10 @@ public class UserServiceIntegrationTest {
 
 		@Test
 		public void testReadUsers() {
-			assertThat(this.service.getAllUsers()).isEqualTo(Arrays.asList(new User[] { this.testUserWithID }));
+			List<User> users = new ArrayList<>();
+			users.add( this.testUserWithID);
+		
+			assertThat(this.service.getAllUsers()).isEqualTo(users);
 		}
 
 		@Test
@@ -66,7 +71,7 @@ public class UserServiceIntegrationTest {
 			User newUser = new User(null, "Liam", "McIvor", "Test@test.com", "M57", "admin");
 			User updatedUser = new User(newUser.getId(), newUser.getFirstName(), newUser.getSurname(), newUser.getEmail(), newUser.getPostcode(), newUser.getPassword());
 			updatedUser.setId(this.testUserWithID.getId());
-
+			
 			assertThat(this.service.updateUser(newUser, this.testUserWithID.getId())).isEqualTo(updatedUser);
 		}
 

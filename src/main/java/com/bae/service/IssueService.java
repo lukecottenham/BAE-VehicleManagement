@@ -39,6 +39,12 @@ public class IssueService {
 		return this.repo.save(toUpdate);
 	}
 	
+	public Issue updateIssueAddressed(Issue issue, Long id) {
+		Issue toUpdate = findIssueById(id);
+		toUpdate.setLastAddressed(issue.getLastAddressed());
+		return this.repo.saveAndFlush(toUpdate);
+	}
+	
 	public String deleteIssue(Long primaryKeyOfIssue) {
 		repo.deleteById(primaryKeyOfIssue);
 		return "Issue successfully removed";

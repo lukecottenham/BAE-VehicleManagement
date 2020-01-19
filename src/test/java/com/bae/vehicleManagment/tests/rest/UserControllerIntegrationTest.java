@@ -56,6 +56,7 @@ public class UserControllerIntegrationTest {
 				.perform(request(HttpMethod.POST, "/user").contentType(MediaType.APPLICATION_JSON)
 						.content(this.mapper.writeValueAsString(testUser)).accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+		testUserWithID.setId(testUserWithID.getId()+1);
 		assertEquals(this.mapper.writeValueAsString(testUserWithID), result);
 	}
 

@@ -1,5 +1,6 @@
 package com.bae.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -26,7 +27,7 @@ public class Vehicle {
 	
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "vehicle_id")
-    private List<Issue> issues;
+    private List<Issue> issues = new ArrayList();
 	
 	public Vehicle() {
 		

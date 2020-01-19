@@ -21,7 +21,7 @@ public class IssueRepoTest {
 
 	private final String TEST_NAME = "Oil";
 
-	private final Issue TEST_ISSUE = new Issue();
+	private final Issue TEST_ISSUE = new Issue(null, "Oil", "1", "10-10-1111");
 
 	private Issue testSavedIssue;
 

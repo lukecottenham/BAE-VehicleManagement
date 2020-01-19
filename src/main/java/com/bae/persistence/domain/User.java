@@ -1,9 +1,11 @@
 package com.bae.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,11 +26,12 @@ public class User {
 	private String postcode;
 	private String password;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
-	private List<Vehicle> vehicles;
+	private List<Vehicle> vehicles = new ArrayList<>();
 
-	public User() {}
+	public User() {
+	}
 
 	public User(Long id, String firstName, String surname, String email, String postcode, String password) {
 		super();
@@ -47,7 +50,7 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -152,7 +155,7 @@ public class User {
 		if (vehicles == null) {
 			if (other.vehicles != null)
 				return false;
-		} else if (!vehicles.equals(other.vehicles))
+		} else if (!vehicles.isEmpty() && !other.vehicles.isEmpty() && !vehicles.equals(other.vehicles))
 			return false;
 		return true;
 	}
@@ -162,6 +165,5 @@ public class User {
 		return "User [id=" + id + ", firstName=" + firstName + ", surname=" + surname + ", email=" + email
 				+ ", postcode=" + postcode + ", password=" + password + ", vehicles=" + vehicles + "]";
 	}
-
 
 }
