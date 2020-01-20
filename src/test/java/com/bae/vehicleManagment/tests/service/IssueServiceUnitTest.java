@@ -2,6 +2,7 @@ package com.bae.vehicleManagment.tests.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -94,6 +95,22 @@ public class IssueServiceUnitTest {
 
 		verify(this.repo, times(1)).findById(1L);
 		verify(this.repo, times(1)).save(updatedIssue);
+	}
+	
+	@Test
+	public void updateIssuesAddressedTest() {
+		Issue newIssue = new Issue(id, "Chain", "60", "12-2-2019");
+		
+		when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testIssueWithID));
+
+		Issue updatedIssue = new Issue(id, newIssue.getIssueName(), newIssue.getUrgency(), testIssue.getLastAddressed());
+		updatedIssue.setId(this.id);
+
+		when(this.repo.save(updatedIssue)).thenReturn(updatedIssue);
+		this.service.updateIssueAddressed(newIssue, this.id);
+		assertNotEquals(updatedIssue.getLastAddressed(), newIssue.getLastAddressed());
+
+		verify(this.repo, times(1)).findById(1L);
 	}
 	
 	@Before

@@ -59,55 +59,26 @@ public class Issue {
 		this.lastAddressed = lastAddressed;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((issueName == null) ? 0 : issueName.hashCode());
-		result = prime * result + ((lastAddressed == null) ? 0 : lastAddressed.hashCode());
-		result = prime * result + ((urgency == null) ? 0 : urgency.hashCode());
-		return result;
-	}
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + ((id == null) ? 0 : id.hashCode());
+//		result = prime * result + ((issueName == null) ? 0 : issueName.hashCode());
+//		result = prime * result + ((lastAddressed == null) ? 0 : lastAddressed.hashCode());
+//		result = prime * result + ((urgency == null) ? 0 : urgency.hashCode());
+//		return result;
+//	}
 
 	
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Issue other = (Issue) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (issueName == null) {
-			if (other.issueName != null)
-				return false;
-		} else if (!issueName.equals(other.issueName))
-			return false;
-		if (lastAddressed == null) {
-			if (other.lastAddressed != null)
-				return false;
-		} else if (!lastAddressed.equals(other.lastAddressed))
-			return false;
-		if (urgency == null) {
-			if (other.urgency != null)
-				return false;
-		} else if (!urgency.equals(other.urgency))
-			return false;
-		return true;
-	}
+	public boolean equals(Object obj) {if (this == obj)return true;if (obj == null)return false;if (getClass() != obj.getClass())return false;Issue other = (Issue) obj;if (id == null) {if (other.id != null)return false;} else if (!id.equals(other.id))return false;if (issueName == null) {if (other.issueName != null)return false;} else if (!issueName.equals(other.issueName))return false;if (lastAddressed == null) {if (other.lastAddressed != null)return false;} else if (!lastAddressed.equals(other.lastAddressed))return false;if (urgency == null) {if (other.urgency != null)return false;} else if (!urgency.equals(other.urgency))return false;return true;}
 
-	@Override
-	public String toString() {
-		return "Issue [id=" + id + ", name=" + issueName + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Issue [id=" + id + ", name=" + issueName + "]";
+//	}
 	
 	
 }

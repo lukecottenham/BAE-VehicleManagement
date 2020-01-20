@@ -69,6 +69,15 @@ public class IssueServiceIntegrationTest {
 
 			assertThat(this.service.updateIssue(newIssue, this.testIssueWithID.getId())).isEqualTo(updatedIssue);
 		}
+		
+		@Test
+		public void testUpdateIssueAddressed() {
+			Issue newIssue = new Issue(null, "Chain", "7", "11-11-2-11");
+			Issue updatedIssue = new Issue(testIssue.getId(), testIssue.getIssueName(), testIssue.getUrgency(), newIssue.getLastAddressed());
+			updatedIssue.setId(this.testIssueWithID.getId());
+
+			assertThat(this.service.updateIssue(newIssue, this.testIssueWithID.getId())).isNotEqualTo(updatedIssue);
+		}
 
 	
 }
