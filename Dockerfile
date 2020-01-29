@@ -1,4 +1,3 @@
-FROM openjdk:8-jdk-alpine
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/VehicleManagement.jar"
+FROM openjdk:8-jdk-alpine AS run
+COPY --from=0 /build/target/*.jar app.jar
+ENTRYPOINT ["/usr/bin/java", "-jar", "app.jar"]
