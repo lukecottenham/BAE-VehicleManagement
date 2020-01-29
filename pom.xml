@@ -14,7 +14,7 @@
 		<version>2.1.3.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.bae</groupId>
+<!-- 	<groupId>com.bae</groupId> -->
 	<artifactId>VehicleManagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
