@@ -10,10 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.bae.persistence.domain.Issue;
 
 @Entity
+@Table(name = "Vehicles")
 public class Vehicle {
 
 	@Id
