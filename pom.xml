@@ -18,15 +18,10 @@
 		<java.version>1.8</java.version>
 	</properties>
 	 <distributionManagement>
-		<repository>
-		<id>nexus</id>
-		<name>maven-releases</name>
-		<url>http://3.8.63.125:8081/repository/maven2proxy/</url>
-		</repository>
 		<snapshotRepository>
 		<id>nexus</id>
-		<name>maven-snapshots</name>
-		<url>http://3.8.63.125:8081/repository/maven-snapshots/</url>
+		<name>book-hosted</name>
+		<url>http://3.11.84.155:8081/repository/book-hosted/</url>
 		</snapshotRepository>
 		</distributionManagement>
 	<dependencies>
@@ -86,7 +81,6 @@
 	</dependency>
 	</dependencies>
 	<build>
-	    <finalName>${project.artifactId}</finalName>
 	        <plugins>
 	            <plugin>
 	                <groupId>org.springframework.boot</groupId>
