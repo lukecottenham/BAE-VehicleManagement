@@ -30,7 +30,7 @@ pipeline {
         }
         stage('--test-deploy--') {
             steps {
-            	sh "ssh -T -i /home/jenkins/key.pem ubuntu@ec2-35-176-134-117.eu-west-2.compute.amazonaws.com ./vehicle-docker-be.sh"
+            	sh "ssh -T -i /home/jenkins/Project.pem ubuntu@ec2-35-176-134-117.eu-west-2.compute.amazonaws.com ./vehicle-docker-be.sh"
             }
         }
         stage('--deploy--') {
