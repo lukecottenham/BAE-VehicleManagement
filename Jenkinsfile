@@ -18,13 +18,14 @@ pipeline {
         }
         stage('--docker-build--') {
         	steps {
-        		sh "docker build -t liammcivor/vehicle-project:$BUILD_NUMBER ."
+        		sh "docker build -t liammcivor/vehicle-project:$BUILD_NUMBER liammcivor/vehicle-project:latest ."
         	}
         }
         stage('--dockerhub-push--') {
         	steps {
         		withDockerRegistry([ credentialsId: "dockerhub-Liam", url: "" ]) {
         			sh "docker push liammcivor/vehicle-project:$BUILD_NUMBER"
+                    sh "docker push liammcivor/vehicle-project:latest"
         		}
         	}
         }
