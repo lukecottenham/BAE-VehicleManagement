@@ -28,6 +28,11 @@ pipeline {
         		}
         	}
         }
+        stage('--test-deploy--') {
+            steps {
+            	sh "ssh -T -i /home/jenkins/key.pem ubuntu@ec2-18-130-66-235.eu-west-2.compute.amazonaws.com ./docker-back-end.sh"
+            }
+        }
         stage('--deploy--') {
             steps {
                 sh "mvn deploy"
