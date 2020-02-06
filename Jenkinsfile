@@ -18,7 +18,7 @@ pipeline {
         }
         stage('--docker-build--') {
         	steps {
-        		sh "docker build -t liammcivor/vehicle-project:$BUILD_NUMBER liammcivor/vehicle-project:latest ."
+        		sh "docker build -t liammcivor/vehicle-project:$BUILD_NUMBER -t liammcivor/vehicle-project:latest ."
         	}
         }
         stage('--dockerhub-push--') {
