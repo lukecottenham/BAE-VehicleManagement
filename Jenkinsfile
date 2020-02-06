@@ -31,7 +31,7 @@ pipeline {
         }
         stage('--test-deploy--') {
             steps {
-            	sh "ssh -T -i /home/jenkins/key.pem ubuntu@ec2-18-130-253-83.eu-west-2.compute.amazonaws.com ./vehicle-docker-be.sh"
+            	sh "ssh -T -i /home/jenkins/key.pem -o StrictHostKeyChecking=no ubuntu@ec2-18-130-253-83.eu-west-2.compute.amazonaws.com ./vehicle-docker-be.sh"
             }
         }
         stage('--deploy--') {
